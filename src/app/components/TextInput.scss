@@ -1,0 +1,14 @@
+.TextInput {
+  width: 375px;
+  height: 60px;
+  outline: 0;
+  border-width: 0 0 0.5px;
+  border-color: lightgray;
+  font-size: 17px;
+  &:hover {
+    border-color: #6b78c2;
+  }
+  &:focus {
+    border-color: #002DFF;
+  }
+}
