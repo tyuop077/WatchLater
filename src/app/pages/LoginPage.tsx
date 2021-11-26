@@ -9,10 +9,20 @@ export const LoginPage = () => {
     const [password, setPassword] = useState("");
 
     const onChange = (event: FormEvent<HTMLInputElement>) => {
-        switch ((event.target as HTMLTextAreaElement).name) {
+        const target = event.target as HTMLTextAreaElement;
+        /*switch (target.name) {
             case "email":
-                setEmail(event.target)
+                setEmail(target.value);
+                break
+            case "password":
+                setPassword(target.value);
+        }*/
+        if (target.type === "email") {
+            setEmail(target.value);
+        } else {
+            setPassword(target.value);
         }
+
     }
     const onSubmit = (event: FormEvent<HTMLInputElement>) => {
         console.log(event);
@@ -20,9 +30,9 @@ export const LoginPage = () => {
 
     return (
         <AuthContainer>
-            <TextInput name="email" type="email" placeholder="Адрес электронной почты" onChange={onChange} />
-            <TextInput name="password" type="password" placeholder="Пароль" onChange={onChange} />
-            <FormButton value="Войти" disabled={false} onClick={onSubmit} />
+            <TextInput type="email" placeholder="Адрес электронной почты" onChange={onChange} />
+            <TextInput type="password" placeholder="Пароль" onChange={onChange} />
+            <FormButton value="Войти" disabled={!email || !password} onClick={onSubmit} />
             <p>Еще не зарегистрированы? <a href="/">Регистрация</a></p>
         </AuthContainer>
     )
