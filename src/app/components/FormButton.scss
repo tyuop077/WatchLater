@@ -13,6 +13,14 @@
     color: #3C3C434D;
     border: none;
   }
+  &:enabled {
+    &:hover {
+      background: #74748014;
+    }
+    &:active {
+      background: #74748050;
+    }
+  }
 }
 
 .FormButtonLine {

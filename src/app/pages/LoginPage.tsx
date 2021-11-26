@@ -1,23 +1,29 @@
-import logo from "../../logo.svg";
-import {LoginForm} from "../components/LoginForm";
-import "./LoginPage.scss";
-export const LoginPage = () => (
-    <div className="LoginPage">
-        <LoginForm/>
-    </div>
-)
+import {TextInput} from "../components/TextInput";
+import {AuthContainer} from "../components/AuthContainer";
+import {FormButton} from "../components/FormButton";
+import {FormEvent, useState} from "react";
 
-/*<header>
-            <img src={logo} className="App-logo" alt="logo" />
-            <p>
-                Edit <code>src/App.tsx</code> and save to reload.
-            </p>
-            <a
-                className="App-link"
-                href="https://reactjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-                Learn React
-            </a>
-        </header>*/
+export const LoginPage = () => {
+    //const data = useState({email: "", password: ""});
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const onChange = (event: FormEvent<HTMLInputElement>) => {
+        switch ((event.target as HTMLTextAreaElement).name) {
+            case "email":
+                setEmail(event.target)
+        }
+    }
+    const onSubmit = (event: FormEvent<HTMLInputElement>) => {
+        console.log(event);
+    }
+
+    return (
+        <AuthContainer>
+            <TextInput name="email" type="email" placeholder="Адрес электронной почты" onChange={onChange} />
+            <TextInput name="password" type="password" placeholder="Пароль" onChange={onChange} />
+            <FormButton value="Войти" disabled={false} onClick={onSubmit} />
+            <p>Еще не зарегистрированы? <a href="/">Регистрация</a></p>
+        </AuthContainer>
+    )
+}
