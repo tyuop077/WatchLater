@@ -5,9 +5,9 @@ import {FormEvent, useState} from "react";
 import {emailRegex, TextField} from "../utils/constants";
 import {Loader} from "../components/Loader";
 import {wlAPI} from "../utils/wl_api";
+import {Link} from "react-router-dom";
 
 export const LoginPage = () => {
-    //const data = useState({email: "", password: ""});
     const [email, setEmail] = useState<TextField>({value: ""});
     const [password, setPassword] = useState("");
     const [tooltip, setTooltip] = useState("");
@@ -15,13 +15,6 @@ export const LoginPage = () => {
 
     const onChange = (event: FormEvent<HTMLInputElement>) => {
         const target = event.target as HTMLTextAreaElement;
-        /*switch (target.name) {
-            case "email":
-                setEmail(target.value);
-                break
-            case "password":
-                setPassword(target.value);
-        }*/
         if (target.type === "email") {
             setEmail({value: target.value});
         } else {
@@ -51,8 +44,8 @@ export const LoginPage = () => {
             <TextInput type="email" placeholder="Адрес электронной почты" onChange={onChange} error={email.error} />
             <TextInput type="password" placeholder="Пароль" onChange={onChange} />
             {tooltip ? <p id="tooltip">{tooltip}</p> : <></>}
-            {isLoading ? <Loader/> : <FormButton value="Войти" disabled={!email || !password} onClick={onSubmit} />}
-            <p>Еще не зарегистрированы? <a href="/">Регистрация</a></p>
+            {isLoading ? <Loader/> : <FormButton value="Войти" disabled={!email.value || !password} onClick={onSubmit} />}
+            <p>Еще не зарегистрированы? <Link to="/register">Регистрация</Link></p>
         </AuthContainer>
     )
 }

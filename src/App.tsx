@@ -1,6 +1,7 @@
 import './App.scss';
-//import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import {LoginPage} from "./app/pages/LoginPage";
+import {RegisterPage} from "./app/pages/RegisterPage";
 
 /*const App = () => (
     <BrowserRouter>
@@ -14,6 +15,12 @@ import {LoginPage} from "./app/pages/LoginPage";
     </BrowserRouter>
 )*/
 
-const App = () => <LoginPage />
+const App = () => (
+    <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+    </Routes>
+)
 
 export default App;
