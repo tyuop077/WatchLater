@@ -36,7 +36,14 @@ export const LoginPage = () => {
             return
         }
         setLoading(true);
-        await wlAPI.login(email.value, password);
+        const res = await wlAPI.login(email.value, password);
+        console.log(res.data);
+        setLoading(false);
+        if (res.data.success) {
+            localStorage.setItem("token", res.data.token);
+        } else {
+            setTooltip(res.data.message);
+        }
     }
 
     return (
