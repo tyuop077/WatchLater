@@ -5,13 +5,14 @@ import {FormEvent, useState} from "react";
 import {emailRegex, TextField} from "../utils/constants";
 import {Loader} from "../components/Loader";
 import {wlAPI} from "../utils/wl_api";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 export const LoginPage = () => {
     const [email, setEmail] = useState<TextField>({value: ""});
     const [password, setPassword] = useState("");
     const [tooltip, setTooltip] = useState("");
     const [isLoading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const onChange = (event: FormEvent<HTMLInputElement>) => {
         const target = event.target as HTMLTextAreaElement;
@@ -34,6 +35,7 @@ export const LoginPage = () => {
         setLoading(false);
         if (res.data.success) {
             localStorage.setItem("token", res.data.token);
+            navigate("/");
         } else {
             setTooltip(res.data.message);
         }

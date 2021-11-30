@@ -1,0 +1,1 @@
+export const MovieShowcasePage = () => <>MovieShowcase page</>

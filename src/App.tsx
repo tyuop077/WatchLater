@@ -1,26 +1,32 @@
 import './App.scss';
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 import {LoginPage} from "./app/pages/LoginPage";
 import {RegisterPage} from "./app/pages/RegisterPage";
+import {AppContainer} from "./app/components/AppContainer";
+import {CollectionPage} from "./app/pages/CollectionPage";
+import {MovieShowcasePage} from "./app/pages/MovieShowcasePage";
 
-/*const App = () => (
-    <BrowserRouter>
-        <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/" element={<MainContainer />}>
-                <Route path="auth" element={<AuthPage />} />
-                <Route path="movies" element={<MoviePage />} />
-            </Route>
-        </Routes>
-    </BrowserRouter>
-)*/
-
-const App = () => (
-    <Routes>
-        <Route path="/" element={<LoginPage />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-    </Routes>
-)
+const App = () => {
+    if (localStorage.getItem("token")) {
+        return (
+            <Routes>
+                <Route path="/login" element={<Navigate replace to="/" />} />
+                <Route path="/register" element={<Navigate replace to="/" />} />
+                <Route path="/" element={<AppContainer />} >
+                    <Route index element={<CollectionPage />} />
+                    <Route path={"movies/:id"} element={<MovieShowcasePage />} />
+                </Route>
+            </Routes>
+        )
+    } else {
+        return (
+            <Routes>
+                <Route path="/" element={<Navigate replace to="/login" />} />
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+            </Routes>
+        )
+    }
+}
 
 export default App;
