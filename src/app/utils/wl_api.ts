@@ -9,6 +9,7 @@ export class wlAPI {
     static login(login: string, password: string) {
         return instance.post("login",{login, password});
     }
+
     static async profile(token: string) {
         const res = await instance.get("profile",{
             headers: {
@@ -23,14 +24,9 @@ export class wlAPI {
         }
         return res
     }
-    private static avatar: string;
-    private static avatar_promise: Promise<string>;
-    static userProfile(token: string | null) {
-        if (this.avatar) return this.avatar;
-        return this.avatar_promise ?? (this.avatar_promise = this.userProfileForced(token))
-    }
-    private static async userProfileForced(token: string | null) {
-        return this.avatar = (await this.profile(token ?? "")).data.avatar_url;
+
+    static async collections() {
+        return instance.get("collections")
     }
 }
 

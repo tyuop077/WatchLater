@@ -1,7 +1,7 @@
 import "./AvatarButton.scss";
 import {setAuthorized} from "../../App";
 import {wlAPI} from "../utils/wl_api";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Loader} from "./Loader";
 
 const onLogout = () => {
@@ -9,12 +9,22 @@ const onLogout = () => {
     setAuthorized(false);
 }
 
-const fetchAvatar = async () => wlAPI.userProfile(localStorage.getItem("token"))
 
 export const AvatarButton = () => {
-    const [avatar, setAvatar] = useState<string | undefined>(undefined);
-    if (avatar === undefined) fetchAvatar().then(url => url && setAvatar ? setAvatar(url) : "");
-    console.log(avatar);
-    return avatar ?
-        <img className="avatarImage" alt="Profile avatar" src={avatar} onClick={onLogout} title="Click to logout" /> : <Loader />
+    const [profileCache, setProfileCache] = useState<{username: string, avatar_url: string}>();
+    useEffect(() => {
+        wlAPI.profile(localStorage.getItem("token")!).then(res =>
+            setProfileCache({username: res.data.username, avatar_url: res.data.avatar_url})
+        )
+    }, [])
+    return profileCache ?
+        <
+            img className="avatarImage"
+                alt="Profile avatar"
+                src={profileCache.avatar_url}
+                onClick={onLogout}
+                title={`${profileCache.username}\nНажмите, чтобы выйти`}
+        />
+            :
+        <Loader />
 }

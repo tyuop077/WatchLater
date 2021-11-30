@@ -22,3 +22,12 @@ header {
     }*/
   }
 }
+
+.main {
+  display: flex;
+  padding-top: 60px;
+  justify-content: center;
+  & .container {
+    width: 480px;
+  }
+}

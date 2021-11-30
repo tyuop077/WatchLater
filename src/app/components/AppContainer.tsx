@@ -19,5 +19,9 @@ export const AppContainer = () => <>
             <AvatarButton />
         </div>
     </header>
-    <Outlet />
+    <div className="main">
+        <div className="container">
+            <Outlet />
+        </div>
+    </div>
 </>
