@@ -6,6 +6,7 @@ import {emailRegex, TextField} from "../utils/constants";
 import {Loader} from "../components/Loader";
 import {wlAPI} from "../utils/wl_api";
 import {Link} from "react-router-dom";
+import {setAuthorized} from "../../App";
 
 export const RegisterPage = () => {
     const [email, setEmail] = useState<TextField>({value: ""});
@@ -53,6 +54,7 @@ export const RegisterPage = () => {
         setLoading(false);
         if (res.data.success) {
             localStorage.setItem("token", res.data.token);
+            setAuthorized(true);
         } else {
             setTooltip(res.data.message);
         }
