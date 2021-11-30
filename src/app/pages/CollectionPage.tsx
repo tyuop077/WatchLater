@@ -1,1 +1,1 @@
-export const CollectionPage = () => <>Collection page</>
+export const CollectionPage = () => <></>

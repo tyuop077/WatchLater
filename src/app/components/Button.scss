@@ -1,7 +1,39 @@
-#btn {
-
+.btn {
+  position: relative;
+  width: 150px;
+  height: 38px;
+  border-radius: 20px;
+  border: none;
+  background: transparent;
+  margin: 10px;
+  font: 500 18px Calibri;
+  padding-left: 25px;
   &Active {
-    @extend #btn;
-
+    @extend .btn;
+    background: #002DFF;
+    color: white;
+    img {
+      filter: none!important;
+    }
+    &:hover {
+      background: #4667ff!important;
+    }
+    &:active {
+      background: #001b9a !important;
+    }
+  }
+  img {
+    position: absolute;
+    width: 24px;
+    left: 12px;
+    top: 7px;
+    //filter: sepia(100%) hue-rotate(100deg) saturate(1000%) brightness(50%);
+    filter: brightness(0) invert(9%) sepia(100%) saturate(6881%) hue-rotate(237deg) brightness(103%) contrast(116%);
+  }
+  &:hover {
+    background: #d9d9d9;
+  }
+  &:active {
+    background: #8c8c8c;
   }
 }
