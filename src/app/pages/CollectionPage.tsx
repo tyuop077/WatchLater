@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import {Movie} from "../utils/types";
 import {wlAPI} from "../utils/wl_api";
 import {Loader} from "../components/Loader";
+import {Link} from "react-router-dom";
 
 export const CollectionPage = () => {
     const [collection, setCollection] = useState<Movie[]>();
@@ -14,10 +15,10 @@ export const CollectionPage = () => {
         <div className="collectionTable">
             {collection.map(movie =>
                 <div className="collectionMovie">
-                    <div className="banner">
+                    <Link className="banner" to={`/movies/${movie.id}`}>
                         <p>{movie.rating}</p>
-                        <img src={movie.thumbnail_url} alt={movie.title}/>
-                    </div>
+                        <img src={movie.thumbnail_url} alt={movie.title} />
+                    </Link>
                     <p>{movie.title}</p>
                 </div>
             )}

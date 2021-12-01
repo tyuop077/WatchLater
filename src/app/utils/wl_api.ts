@@ -28,6 +28,9 @@ export class wlAPI {
     static async collections() {
         return instance.get("collections")
     }
+    static async movie(id: number) {
+        return instance.get(`movies/${id}`)
+    }
 }
 
 instance.interceptors.response.use(res => res, err => {
