@@ -1,0 +1,11 @@
+.showcase {
+  display: flex;
+  padding-top: 25px;
+  & img {
+    height: 340px;
+    padding-right: 5px;
+  }
+  & .description {
+
+  }
+}
