@@ -8,6 +8,7 @@
   margin: 10px;
   font: 500 18px Calibri;
   padding-left: 25px;
+  cursor: pointer;
   &Active {
     @extend .btn;
     background: #002DFF;
