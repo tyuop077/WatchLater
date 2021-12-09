@@ -14,7 +14,7 @@ export const MovieShowcasePage = () => {
         wlAPI.movie(parseInt(params.id ?? "-1")).then(res => setMovie(res.data))
     })
     return movie ? <div className="showcase">
-        <img src={movie.thumbnail_url} alt={movie.title} />
+        <img className="cover" src={movie.thumbnail_url} alt={movie.title} />
         <div className="description">
             <h1>{movie.title}</h1>
             <h6>{movie.date}</h6>
