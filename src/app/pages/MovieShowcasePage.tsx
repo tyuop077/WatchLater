@@ -17,8 +17,10 @@ export const MovieShowcasePage = () => {
         <img className="cover" src={movie.thumbnail_url} alt={movie.title} />
         <div className="description">
             <h1>{movie.title}</h1>
-            <h6>{movie.date}</h6>
-            <h5>{movie.rating}</h5>
+            <div className="info">
+                <h6>{movie.date}</h6>
+                <h5>{movie.rating}</h5>
+            </div>
             <Button id="watchlist" text="Буду смотреть" toggled={true} image={plusIcon}/>
             <p>{movie.description}</p>
             <b>{movie.genres.join(", ")}</b>

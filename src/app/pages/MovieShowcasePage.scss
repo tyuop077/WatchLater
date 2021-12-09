@@ -8,13 +8,19 @@
   & .description {
 
   }
+  & .info {
+    display: flex;
+    height: 20px;
+  }
   .btnActive {
     font: 500 15px Calibri;
   }
   h6 {
     font: 600 18px Calibri;
+    margin: 5px;
   }
   h5 {
+    margin: 5px;
     text-align: center;
     background: #FFFFFF;
     border: 1px solid #002DFF;
