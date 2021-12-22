@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Movie} from "../CollectionPage/Movie";
-import {wlAPI} from "@utils/API";
+import {wlAPI} from "@services/API";
 import {Loader} from "@components/Loader/Loader";
 import {useParams} from "react-router-dom";
 import "./MovieShowcasePage.scss";

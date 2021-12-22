@@ -1,7 +1,7 @@
 import "./CollectionPage.scss";
 import {useEffect, useState} from "react";
 import {Movie} from "./Movie";
-import {wlAPI} from "@utils/API";
+import {wlAPI} from "@services/API";
 import {Loader} from "@components/Loader/Loader";
 import {Link} from "react-router-dom";
 
