@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {Movie} from "../CollectionPage/Movie";
-import {wlAPI} from "../../services/API";
+import {API} from "../../services/API";
 import {Loader} from "../../components/Loader/Loader";
 import {useParams} from "react-router-dom";
 import "./MovieShowcasePage.scss";
@@ -11,7 +11,7 @@ export const MovieShowcasePage = () => {
     const [movie, setMovie] = useState<Movie>();
     const params = useParams();
     useEffect(() => {
-        wlAPI.movie(parseInt(params.id ?? "-1")).then(res => setMovie(res.data))
+        API.movie(parseInt(params.id ?? "-1")).then(res => setMovie(res.data))
     })
     return movie ? <div className="showcase">
         <img className="cover" src={movie.thumbnail_url} alt={movie.title} />

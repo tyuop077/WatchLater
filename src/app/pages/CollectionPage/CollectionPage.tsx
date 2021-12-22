@@ -1,14 +1,14 @@
 import "./CollectionPage.scss";
 import {useEffect, useState} from "react";
 import {Movie} from "./Movie";
-import {wlAPI} from "../../services/API";
+import {API} from "../../services/API";
 import {Loader} from "../../components/Loader/Loader";
 import {Link} from "react-router-dom";
 
 export const CollectionPage = () => {
     const [collection, setCollection] = useState<Movie[]>();
     useEffect(() => {
-        wlAPI.collections().then(res => setCollection(res.data))
+        API.collections().then(res => setCollection(res.data))
     }, [])
     if (collection) return <>
         <h1>Коллекция</h1>

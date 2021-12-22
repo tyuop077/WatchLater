@@ -3,7 +3,7 @@ import {AuthContainer} from "../../containers/AuthContainer/AuthContainer";
 import {FormButton} from "../../components/FormButton/FormButton";
 import {FormEvent, useState} from "react";
 import {Loader} from "../../components/Loader/Loader";
-import {wlAPI} from "../../services/API";
+import {API} from "../../services/API";
 import {Link} from "react-router-dom";
 import {setAuthorized} from "../../../App";
 import {emailRegex, TextField} from "./Validators";
@@ -49,7 +49,7 @@ export const RegisterPage = () => {
             return
         }
         setLoading(true);
-        const res = await wlAPI.login(email.value, password.value);
+        const res = await API.login(email.value, password.value);
         console.log(res.data);
         setLoading(false);
         if (res.data.success) {

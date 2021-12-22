@@ -5,7 +5,7 @@ const instance = axios.create({
     baseURL: "https://wl.api.tyuop.tk/"
 })
 
-export class wlAPI {
+export class API {
     static login(login: string, password: string) {
         return instance.post("login",{login, password});
     }

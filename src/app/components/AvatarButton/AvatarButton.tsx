@@ -1,6 +1,5 @@
 import "./AvatarButton.scss";
-import {setAuthorized} from "../../../App";
-import {wlAPI} from "../../services/API";
+import {API} from "../../services/API";
 import React, {useEffect, useState} from "react";
 import {Loader} from "../Loader/Loader";
 
@@ -13,7 +12,7 @@ const onLogout = () => {
 export const AvatarButton = () => {
     const [profileCache, setProfileCache] = useState<{username: string, avatar_url: string}>();
     useEffect(() => {
-        wlAPI.profile(localStorage.getItem("token")!).then(res =>
+        API.profile(localStorage.getItem("token")!).then(res =>
             setProfileCache({username: res.data.username, avatar_url: res.data.avatar_url})
         )
     }, [])
