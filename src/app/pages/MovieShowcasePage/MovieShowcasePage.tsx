@@ -4,7 +4,7 @@ import {wlAPI} from "@services/API";
 import {Loader} from "@components/Loader/Loader";
 import {useParams} from "react-router-dom";
 import "./MovieShowcasePage.scss";
-import plusIcon from "../../assets/Plus.svg";
+import plusIcon from "@assets/Plus.svg";
 import {Button} from "@components/Button/Button";
 
 export const MovieShowcasePage = () => {
