@@ -5,14 +5,16 @@ import {FormEvent, useState} from "react";
 import {Loader} from "../../components/Loader/Loader";
 import {API} from "../../services/API";
 import {Link} from "react-router-dom";
-import {setAuthorized} from "../../../App";
 import {emailRegex, TextField} from "./Validators";
+import {useAppDispatch} from "../../stores/GlobalStore";
+import {setAuthorized} from "../../stores/AuthState";
 
 export const LoginPage = () => {
     const [email, setEmail] = useState<TextField>({value: ""});
     const [password, setPassword] = useState("");
     const [tooltip, setTooltip] = useState("");
     const [isLoading, setLoading] = useState(false);
+    const dispatch = useAppDispatch();
 
     const onChange = (event: FormEvent<HTMLInputElement>) => {
         const target = event.target as HTMLTextAreaElement;
@@ -35,7 +37,7 @@ export const LoginPage = () => {
         setLoading(false);
         if (res.data.success) {
             localStorage.setItem("token", res.data.token);
-            setAuthorized(true);
+            dispatch(setAuthorized());
         } else {
             setTooltip(res.data.message);
         }

@@ -1,5 +1,6 @@
 import axios from "axios";
-import {setAuthorized} from "../../App";
+import {setUnauthorized} from "../stores/AuthState";
+import {Store} from "../stores/GlobalStore";
 
 const instance = axios.create({
     baseURL: "https://wl.api.tyuop.tk/"
@@ -20,7 +21,8 @@ export class API {
             console.log(res.data);
             localStorage.removeItem("token");
             alert(res.data.message);
-            setAuthorized(false);
+            // I can't use useAppDispatch on non-component functions
+            Store.dispatch(setUnauthorized());
         }
         return res
     }

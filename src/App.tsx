@@ -5,13 +5,11 @@ import {RegisterPage} from "./app/pages/AuthPages/RegisterPage";
 import {AppContainer} from "./app/containers/AppContainer/AppContainer";
 import {CollectionPage} from "./app/pages/CollectionPage/CollectionPage";
 import {MovieShowcasePage} from "./app/pages/MovieShowcasePage/MovieShowcasePage";
-import React, {useState} from "react";
-
-export let setAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
+import React from "react";
+import {useAppSelector} from "./app/stores/GlobalStore";
 
 const App = () => {
-    const [isAuthorized, _setAuthorized] = useState(Boolean(localStorage.getItem("token")));
-    setAuthorized = _setAuthorized;
+    const isAuthorized = useAppSelector(state => state.authState.value);
     return isAuthorized ? (
         <Routes>
             <Route path="/login" element={<Navigate replace to="/" />} />
