@@ -1,6 +1,6 @@
 import "./AvatarButton.scss";
 import {setAuthorized} from "@root/App";
-import {wlAPI} from "@services/API";
+import {wlAPI} from "@utils/API";
 import React, {useEffect, useState} from "react";
 import {Loader} from "@components/Loader/Loader";
 

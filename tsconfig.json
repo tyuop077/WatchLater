@@ -25,7 +25,7 @@
       "@components/*": ["app/components/*"],
       "@component/*": ["app/components/*/*"],
       "@containers/*": ["app/containers/*"],
-      "@services/*": ["app/services/*"]
+      "@utils/*": ["app/utils/*"]
     }
   },
   "include": [
