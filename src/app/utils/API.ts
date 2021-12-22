@@ -1,5 +1,5 @@
 import axios from "axios";
-import {setAuthorized} from "../../App";
+import {setAuthorized} from "@root/App";
 
 const instance = axios.create({
     baseURL: "https://wl.api.tyuop.tk/"

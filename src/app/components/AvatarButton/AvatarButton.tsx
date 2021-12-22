@@ -1,14 +1,13 @@
 import "./AvatarButton.scss";
-import {setAuthorized} from "../../../App";
-import {wlAPI} from "../../utils/API";
+import {setAuthorized} from "@root/App";
+import {wlAPI} from "@utils/API";
 import React, {useEffect, useState} from "react";
-import {Loader} from "../Loader/Loader";
+import {Loader} from "@components/Loader/Loader";
 
 const onLogout = () => {
     localStorage.removeItem("token");
     setAuthorized(false);
 }
-
 
 export const AvatarButton = () => {
     const [profileCache, setProfileCache] = useState<{username: string, avatar_url: string}>();

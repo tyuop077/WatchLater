@@ -1,11 +1,11 @@
 import {useEffect, useState} from "react";
 import {Movie} from "../CollectionPage/Movie";
-import {wlAPI} from "../../utils/API";
-import {Loader} from "../../components/Loader/Loader";
+import {wlAPI} from "@utils/API";
+import {Loader} from "@components/Loader/Loader";
 import {useParams} from "react-router-dom";
 import "./MovieShowcasePage.scss";
-import plusIcon from "../../assets/Plus.svg";
-import {Button} from "../../components/Button/Button";
+import plusIcon from "@assets/Plus.svg";
+import {Button} from "@components/Button/Button";
 
 export const MovieShowcasePage = () => {
     const [movie, setMovie] = useState<Movie>();
