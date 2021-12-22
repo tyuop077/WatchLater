@@ -3,7 +3,7 @@ import {AuthContainer} from "../../containers/AuthContainer/AuthContainer";
 import {FormButton} from "../../components/FormButton/FormButton";
 import {FormEvent, useState} from "react";
 import {Loader} from "../../components/Loader/Loader";
-import {wlAPI} from "../../utils/API";
+import {wlAPI} from "../../services/API";
 import {Link} from "react-router-dom";
 import {setAuthorized} from "../../../App";
 import {emailRegex, TextField} from "./Validators";
