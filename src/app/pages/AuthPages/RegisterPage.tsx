@@ -1,11 +1,11 @@
-import {TextInput} from "@components/TextInput/TextInput";
-import {AuthContainer} from "@containers/AuthContainer/AuthContainer";
-import {FormButton} from "@components/FormButton/FormButton";
+import {TextInput} from "../../components/TextInput/TextInput";
+import {AuthContainer} from "../../containers/AuthContainer/AuthContainer";
+import {FormButton} from "../../components/FormButton/FormButton";
 import {FormEvent, useState} from "react";
-import {Loader} from "@components/Loader/Loader";
-import {wlAPI} from "@utils/API";
+import {Loader} from "../../components/Loader/Loader";
+import {wlAPI} from "../../utils/API";
 import {Link} from "react-router-dom";
-import {setAuthorized} from "@root/App";
+import {setAuthorized} from "../../../App";
 import {emailRegex, TextField} from "./Validators";
 
 export const RegisterPage = () => {
