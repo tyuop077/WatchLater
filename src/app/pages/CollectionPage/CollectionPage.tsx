@@ -1,8 +1,8 @@
 import "./CollectionPage.scss";
 import {useEffect, useState} from "react";
-import {Movie} from "../utils/types";
-import {wlAPI} from "../utils/wl_api";
-import {Loader} from "../components/Loader";
+import {Movie} from "./Movie";
+import {wlAPI} from "../../utils/API";
+import {Loader} from "../../components/Loader/Loader";
 import {Link} from "react-router-dom";
 
 export const CollectionPage = () => {

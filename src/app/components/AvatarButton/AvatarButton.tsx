@@ -1,8 +1,8 @@
 import "./AvatarButton.scss";
-import {setAuthorized} from "../../App";
-import {wlAPI} from "../utils/wl_api";
+import {setAuthorized} from "../../../App";
+import {wlAPI} from "../../utils/API";
 import React, {useEffect, useState} from "react";
-import {Loader} from "./Loader";
+import {Loader} from "../Loader/Loader";
 
 const onLogout = () => {
     localStorage.removeItem("token");

@@ -1,11 +1,11 @@
 import {Outlet, useNavigate} from "react-router-dom";
 import "./AppContainer.scss";
-import logo from "../assets/WLShort.svg";
-import {Button} from "./Button";
-import collectionIcon from "../assets/Collection.svg";
-import plusIcon from "../assets/Plus.svg";
-import searchIcon from "../assets/Search.svg";
-import {AvatarButton} from "./AvatarButton";
+import logo from "../../assets/WLShort.svg";
+import {Button} from "../../components/Button/Button";
+import collectionIcon from "../../assets/Collection.svg";
+import plusIcon from "../../assets/Plus.svg";
+import searchIcon from "../../assets/Search.svg";
+import {AvatarButton} from "../../components/AvatarButton/AvatarButton";
 
 export const AppContainer = () => {
     const navigate = useNavigate();

@@ -1,12 +1,12 @@
-import {TextInput} from "../components/TextInput";
-import {AuthContainer} from "../components/AuthContainer";
-import {FormButton} from "../components/FormButton";
+import {TextInput} from "../../components/TextInput/TextInput";
+import {AuthContainer} from "../../containers/AuthContainer/AuthContainer";
+import {FormButton} from "../../components/FormButton/FormButton";
 import {FormEvent, useState} from "react";
-import {emailRegex, TextField} from "../utils/constants";
-import {Loader} from "../components/Loader";
-import {wlAPI} from "../utils/wl_api";
+import {Loader} from "../../components/Loader/Loader";
+import {wlAPI} from "../../utils/API";
 import {Link} from "react-router-dom";
-import {setAuthorized} from "../../App";
+import {setAuthorized} from "../../../App";
+import {emailRegex, TextField} from "./Validators";
 
 export const RegisterPage = () => {
     const [email, setEmail] = useState<TextField>({value: ""});

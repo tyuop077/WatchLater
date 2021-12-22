@@ -1,10 +1,10 @@
 import './App.scss';
 import {Routes, Route, Navigate} from "react-router-dom";
-import {LoginPage} from "./app/pages/LoginPage";
-import {RegisterPage} from "./app/pages/RegisterPage";
-import {AppContainer} from "./app/components/AppContainer";
-import {CollectionPage} from "./app/pages/CollectionPage";
-import {MovieShowcasePage} from "./app/pages/MovieShowcasePage";
+import {LoginPage} from "./app/pages/AuthPages/LoginPage";
+import {RegisterPage} from "./app/pages/AuthPages/RegisterPage";
+import {AppContainer} from "./app/containers/AppContainer/AppContainer";
+import {CollectionPage} from "./app/pages/CollectionPage/CollectionPage";
+import {MovieShowcasePage} from "./app/pages/MovieShowcasePage/MovieShowcasePage";
 import React, {useState} from "react";
 
 export let setAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
