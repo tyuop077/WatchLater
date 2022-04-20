@@ -12,7 +12,7 @@ export const MovieShowcasePage = () => {
     const params = useParams();
     useEffect(() => {
         API.movie(parseInt(params.id ?? "-1")).then(res => setMovie(res.data))
-    })
+    }, [params.id])
     return movie ? <div className="showcase">
         <img className="cover" src={movie.thumbnail_url} alt={movie.title} />
         <div className="description">

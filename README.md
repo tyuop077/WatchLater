@@ -1,6 +1,6 @@
 # Watch Later
 
-Watch Later test React app
+Watch Later React app
 
 ### `yarn start`
 
