@@ -3,7 +3,7 @@ import {setUnauthorized} from "../stores/AuthState";
 import {Store} from "../stores/GlobalStore";
 
 const instance = axios.create({
-    baseURL: "https://wl.api.tyuop.tk/"
+    baseURL: "https://wl-api.tyuop.vercel.app/"
 })
 
 export class API {
